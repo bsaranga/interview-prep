@@ -1,4 +1,6 @@
-﻿using Xunit.Abstractions;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
+using Xunit.Abstractions;
 
 namespace DataStructures_Tests
 {
@@ -41,18 +43,44 @@ namespace DataStructures_Tests
             var arr2 = arr1;
             var arr3 = arr1;
 
-            Assert.True(Object.ReferenceEquals(arr2, arr3));
+            Assert.True(Object.ReferenceEquals(arr1, arr2) && Object.ReferenceEquals(arr2, arr3));
         }
 
         [Fact]
-        public void WTFAreReferenceTypes()
+        public void StringsAreReferenceTypesYetImmutable()
+        {
+            string fooLiteral = "foo";  // fooLiteral ---> #908fd
+
+            string a = fooLiteral;  // a ---> #908fd
+            string b = a; // b ---> #908fd
+
+            fooLiteral += "fooa";  //  fooLiteral ---> #5ea87
+
+            Assert.True(Object.ReferenceEquals(a, b));
+            Assert.True(!Object.ReferenceEquals(a, fooLiteral));
+            Assert.True(!Object.ReferenceEquals(b, fooLiteral));
+        }
+
+        [Fact]
+        public void StringsAreInterned()
         {
             string foo = "foo";
-            string bar = foo;
+            string bar = "foo";
 
-            bar.Append('b');
+            var referenceToInternedString = String.IsInterned("foo");
 
-            testOutputHelper.WriteLine(bar);
+            Assert.True(
+                Object.ReferenceEquals(foo, bar) 
+                && Object.ReferenceEquals(foo, referenceToInternedString) 
+                && Object.ReferenceEquals(bar, referenceToInternedString)
+            );
         }
+
+        [Fact]
+        public void ArrayCopyInstancesAreDifferent()
+        {
+
+        }
+
     }
 }
