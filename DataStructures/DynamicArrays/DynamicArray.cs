@@ -4,10 +4,10 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("DataStructures_Tests")]
 namespace DataStructures.DynamicArrays
 {
-    public class DynamicArray<T> : IEnumerator<T>
+    public class DynamicArray<T> : IEnumerator<T>, IEnumerable<T>
     {
         private T[] store;
-        private int position = 0;
+        private int position = -1;
 
         /// <summary>
         /// Returns the length of the internal storage array
@@ -15,24 +15,60 @@ namespace DataStructures.DynamicArrays
         public int Length { get { return store.Length; } }
 
         /// <summary>
-        /// Initialize a dynamic array with set size
-        /// </summary>
-        /// <param name="size">Size of array</param>
-        public DynamicArray(int size = 1)
-        {
-            if (size < 0) throw new ArgumentOutOfRangeException("size");
-            store = new T[size];
-        }
-
-        /// <summary>
         /// Initializes dynamic array with an array of type T
         /// </summary>
         /// <param name="arrayOfT">Array of type T</param>
         public DynamicArray(params T[] arrayOfT)
         {
-            store = arrayOfT;
+            if (arrayOfT == null)
+            {
+                store = new T[] { };
+            }
+            else
+            {
+                store = arrayOfT;
+                position = arrayOfT.Length - 1;
+            }
         }
 
+        /// <summary>
+        /// Adds new elements into the store
+        /// </summary>
+        /// <param name="items">Items of T to be added</param>
+        public void Add(params T[] items)
+        {
+            ExtendStore(items.Length);
+            for (int i = 0; i < items.Length; i++)
+            {
+                MoveNext();
+                store[position] = items[i];
+            }
+        }
+
+        public void Remove(int index)
+        {
+            var left = new T[index];
+            var right = new T[Length - 1 - index];
+            
+            for (int i = 0; i < index; i++)
+            {
+                left[i] = store[i];
+            }
+
+            for (int i = 0; i < Length - 1 - index; i++)
+            {
+                right[i] = store[index + i + 1];
+            }
+
+            store = left.Concat(right).ToArray();
+            position--;
+        }
+
+        /// <summary>
+        /// Get value at index, or set value at index
+        /// </summary>
+        /// <param name="index">Index number</param>
+        /// <returns>Value at index</returns>
         public T this[int index]
         {
             get 
@@ -62,6 +98,9 @@ namespace DataStructures.DynamicArrays
             }
         }
 
+        /// <summary>
+        /// Get's the current value the iterator is pointing
+        /// </summary>
         public T Current 
         { 
             get 
@@ -87,7 +126,7 @@ namespace DataStructures.DynamicArrays
 
         public void Reset()
         {
-            position = 0;
+            position = -1;
         }
 
         public void Dispose() { }
@@ -107,6 +146,19 @@ namespace DataStructures.DynamicArrays
             {
                 newArray[i] = oldCopy[i];
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                yield return store[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 
