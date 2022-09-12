@@ -68,9 +68,29 @@ namespace DataStructures_Tests
         }
 
         [Fact]
-        public void ExtendStoreWorks()
+        public void ExtendStoreByDefaultExtensionAmountWorks()
         {
             var dynArray = new DynamicArray<int>();
+            dynArray.ExtendStore();
+            Assert.Equal(2, dynArray.Length);
+        }
+
+        [Fact]
+        public void ElementsArePreservedWhenExtended()
+        {
+            var dynArray = new DynamicArray<int>(new int[] { 1,2,3,4,5 });
+            dynArray.ExtendStore();
+
+            Assert.Equal(1, dynArray[0]);
+            Assert.Equal(5, dynArray[4]);
+            Assert.Equal(default (int), dynArray[5]);
+        }
+
+        [Fact]
+        public void NullStoreExceptionThrownWhenExtendedByZero()
+        {
+            var dynArray = new DynamicArray<int>();
+            Assert.Throws<NullStoreExtensionException>(() => dynArray.ExtendStore(0));
         }
     }
 }

@@ -24,9 +24,13 @@ namespace DataStructures.DynamicArrays
             store = new T[size];
         }
 
-        public DynamicArray(params T[] list)
+        /// <summary>
+        /// Initializes dynamic array with an array of type T
+        /// </summary>
+        /// <param name="arrayOfT">Array of type T</param>
+        public DynamicArray(params T[] arrayOfT)
         {
-            store = list;
+            store = arrayOfT;
         }
 
         public T this[int index]
@@ -51,28 +55,10 @@ namespace DataStructures.DynamicArrays
 
                     store = new T[index + 1];
 
-                    for (int i = 0; i < copy.Length; i++)
-                    {
-                        store[i] = copy[i];
-                    }
+                    CopyElements(copy, store);
 
                     store[index] = value;
                 }
-            }
-        }
-
-        internal void ExtendStore(int amount = 1)
-        {
-            var copy = (T[]) store.Clone();
-            store = new T[store.Length + amount];
-            CopyElements(copy, ref store);
-        }
-
-        internal void CopyElements(T[] oldCopy, ref T[] newArray)
-        {
-            for (int i = 0; i < oldCopy.Length; i++)
-            {
-                newArray[i] = oldCopy[i];
             }
         }
 
@@ -93,8 +79,6 @@ namespace DataStructures.DynamicArrays
 
         object IEnumerator.Current => Current!;
 
-        public void Dispose() {}
-
         public bool MoveNext()
         {
             position++;
@@ -104,6 +88,34 @@ namespace DataStructures.DynamicArrays
         public void Reset()
         {
             position = 0;
+        }
+
+        public void Dispose() { }
+
+        internal void ExtendStore(int amount = 1)
+        {
+            if (amount <= 0) throw new NullStoreExtensionException();
+
+            var copy = (T[])store.Clone();
+            store = new T[store.Length + amount];
+            CopyElements(copy, store);
+        }
+
+        internal void CopyElements(T[] oldCopy, T[] newArray)
+        {
+            for (int i = 0; i < oldCopy.Length; i++)
+            {
+                newArray[i] = oldCopy[i];
+            }
+        }
+    }
+
+    public class NullStoreExtensionException : Exception
+    {
+        private const string DEFAULT_MSG = "Cannot extend the internal store by 0 or less";
+        public NullStoreExtensionException(string? message = DEFAULT_MSG) : base(message)
+        {
+
         }
     }
 }
