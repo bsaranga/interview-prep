@@ -2,10 +2,10 @@
 
 namespace DataStructures_Tests
 {
-    public class DynamicArrayTest
+    public class EnumeratedDataTypeTest
     {
         private EnumeratedDataType<int> IntEnumDataType;
-        public DynamicArrayTest()
+        public EnumeratedDataTypeTest()
         {
             // Setup
             IntEnumDataType = new EnumeratedDataType<int>(2, 4, 6, 8, 10, 12, 14, 16);

@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using DataStructures.DynamicArrays;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit.Abstractions;
 
@@ -79,7 +80,7 @@ namespace DataStructures_Tests
         [Fact]
         public void ArrayCopyInstancesAreDifferent()
         {
-
+            var dynArray = new DynamicArray<int>();
         }
 
     }
