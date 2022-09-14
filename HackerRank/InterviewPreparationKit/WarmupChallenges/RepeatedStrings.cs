@@ -10,16 +10,15 @@ namespace WarmupChallenges
     {
         public long repeatedString(string s, long n)
         {
-            // abaabaabaaba|aba
-            long duplicates = (long) Math.Ceiling((decimal) n/s.Length);
-            string repeatedSubStr = "";
+            if (!s.Contains('a')) return 0;
 
-            for (int i = 0; i <= duplicates; i++)
-            {
-                repeatedSubStr += s;
-            }
+            if (s.Length == 1) return n;
 
-            var numAs = repeatedSubStr.Substring(0, (int)n).Count(s => s == 'a');
+            if (s.Length >= n) return s.Substring(0, (int)n).Count(c => c == 'a');
+
+            long numChars = s.Length;
+            long numAInSubStr = s.Count(c => c == 'a');
+            long numAs = numAInSubStr * (n / numChars) + s.Substring(0, (int)(n % numChars)).Count(c => c == 'a');
 
             return numAs;
         }
