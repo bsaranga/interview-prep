@@ -13,9 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackerRank", "HackerRank", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InterviewPreparationKit", "InterviewPreparationKit", "{AFC80D84-50EE-495A-905B-A092C722701F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarmupChallenges", "HackerRank\InterviewPreparationKit\WarmupChallenges\WarmupChallenges.csproj", "{F607A67C-1B15-470C-935E-2842E7DFD82F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarmupChallenges", "HackerRank\InterviewPreparationKit\WarmupChallenges\WarmupChallenges.csproj", "{F607A67C-1B15-470C-935E-2842E7DFD82F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarmupChallenges_Tests", "HackerRank\InterviewPreparationKit\WarmupChallenges_Tests\WarmupChallenges_Tests.csproj", "{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarmupChallenges_Tests", "HackerRank\InterviewPreparationKit\WarmupChallenges_Tests\WarmupChallenges_Tests.csproj", "{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "HackerRank\InterviewPreparationKit\Arrays\Arrays\Arrays.csproj", "{861BE869-60F1-49D2-87B6-257C1C9E1945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays_Tests", "HackerRank\InterviewPreparationKit\Arrays\Arrays_Tests\Arrays_Tests.csproj", "{E2C800BB-4838-4BAB-883B-88492C462E79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,14 @@ Global
 		{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861BE869-60F1-49D2-87B6-257C1C9E1945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861BE869-60F1-49D2-87B6-257C1C9E1945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861BE869-60F1-49D2-87B6-257C1C9E1945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861BE869-60F1-49D2-87B6-257C1C9E1945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C800BB-4838-4BAB-883B-88492C462E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C800BB-4838-4BAB-883B-88492C462E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C800BB-4838-4BAB-883B-88492C462E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C800BB-4838-4BAB-883B-88492C462E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +63,8 @@ Global
 		{AFC80D84-50EE-495A-905B-A092C722701F} = {43D9EF5E-1D01-435B-889B-F9647AE63881}
 		{F607A67C-1B15-470C-935E-2842E7DFD82F} = {AFC80D84-50EE-495A-905B-A092C722701F}
 		{3A347511-6CE3-42A9-8DAF-9C2B8ECF1F0E} = {AFC80D84-50EE-495A-905B-A092C722701F}
+		{861BE869-60F1-49D2-87B6-257C1C9E1945} = {AFC80D84-50EE-495A-905B-A092C722701F}
+		{E2C800BB-4838-4BAB-883B-88492C462E79} = {AFC80D84-50EE-495A-905B-A092C722701F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5347AD88-8960-4D2C-9283-60A2EA693A1E}
