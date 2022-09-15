@@ -14,3 +14,15 @@ Here's code and notes that I have written while preparing for job interviews. Al
 - **Sales By Match**
   - [Code](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges/SalesByMatch.cs)
   - [Tests](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges_Tests/SalesByMatchTests.cs)
+
+- **Counting Valleys**
+  - [Code](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges/CountingValleys.cs)
+  - [Tests](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges_Tests/CountingValleys_Tests.cs)
+
+- **Jumping On Clouds**
+  - [Code](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges/JumpingOnClouds.cs)
+  - [Tests](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges_Tests/JumpingOnClouds_Tests.cs)
+
+- **Repeated Strings**
+  - [Code](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges/RepeatedStrings.cs)
+  - [Tests](https://github.com/bsaranga/interview-prep/blob/main/HackerRank/InterviewPreparationKit/WarmupChallenges_Tests/RepeatedStrings_Tests.cs)
