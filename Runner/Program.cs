@@ -1,12 +1,15 @@
-﻿using DataStructures.DynamicArrays;
-
-namespace Runner
+﻿namespace Runner
 {
-    internal class Program
+    public class Program
     {
+        protected Program()
+        {
+
+        }
+
         static void Main(string[] args)
         {
-            var dynArray = new DynamicArray<int>();
+            
         }
     }
 }

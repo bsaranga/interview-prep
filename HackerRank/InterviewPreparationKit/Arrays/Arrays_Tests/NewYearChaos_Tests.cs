@@ -4,11 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace Arrays_Tests
 {
     public class NewYearChaos_Tests
     {
+        private readonly ITestOutputHelper testOutputHelper;
+
+        public NewYearChaos_Tests(ITestOutputHelper testOutputHelper)
+        {
+            this.testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void NewYearChaos_Test1()
         {
@@ -30,6 +38,25 @@ namespace Arrays_Tests
 
             var result = NewYearChaos.minimumBribesCalc(new List<int> { 1, 2, 5, 3, 7, 8, 6, 4 });
             Assert.Equal(7, Int32.Parse(result));
+        }
+
+        [Fact]
+        void Exp()
+        {
+            int[] arr = { 1, 2, 5, 3, 7, 8, 6, 4 };
+
+            for (int i = 0, swaps = 0; i < arr.Length; ++i)
+            {
+                if (arr[i] > i + 1)
+                {
+                    int cp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = cp;
+                    swaps++;
+                }
+
+                testOutputHelper.WriteLine($"{arr[i]}|{swaps}");
+            }
         }
     }
 }
